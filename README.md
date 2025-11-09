@@ -1,5 +1,5 @@
 # CityHub – Backend API  
-**Platforma ogłoszeń lokalnych: sprzedaż przedmiotów i rezerwacja usług**
+**Local classifieds platform: selling items and booking services**
 
 ![Java](https://img.shields.io/badge/Java-21-blue)  
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.7-brightgreen)  
@@ -9,56 +9,40 @@
 
 ---
 
-## Spis treści
-- [Funkcjonalności](#funkcjonalności)
-- [Aktorzy (UML)](#aktorzy-uml)
-- [Technologie](#technologie)
-- [Struktura projektu](#struktura-projektu)
-- [Uruchomienie](#uruchomienie)
-- [API – Endpointy](#api-endpointy)
-- [Testy w Postmanie](#testy-w-postmanie)
-- [Admin Panel](#admin-panel)
-- [Bezpieczeństwo](#bezpieczeństwo)
-- [Rozwój](#rozwój)
+## Features
+
+- User registration and login (JWT)
+- Item advertisements (`ItemAd`)
+- Service advertisements (`JobAd`)
+- Service booking (30-minute time slots)
+- Filtering and search
+- Account management
+- Admin panel (statistics, moderation)
+- Authorization levels: Guest / User / Admin
 
 ---
 
-## Funkcjonalności
-
-| Funkcja | Status |
-|-------|--------|
-| Rejestracja / logowanie (JWT) | Done |
-| Ogłoszenia: **przedmioty** (`ItemAd`) | Done |
-| Ogłoszenia: **usługi** (`JobAd`) | Done |
-| Rezerwacja usług (co 30 min) | Done |
-| Filtrowanie i wyszukiwanie | Done |
-| Zarządzanie kontem | Done |
-| Panel admina (statystyki, usuwanie) | Done |
-| Autoryzacja: Guest / User / Admin | Done |
-
----
-
-## Aktorzy (UML)
+## Actors (UML)
 
 ```mermaid
 classDiagram
     class Guest {
-        + Przeglądanie ogłoszeń
-        + Wyszukiwanie
-        + Podgląd szczegółów
+        + Browse ads
+        + Search
+        + View details
     }
     class User {
-        + Rejestracja
-        + Logowanie
-        + Zarządzanie kontem
-        + Dodaj/edytuj/usun (swoje)
-        + Rezerwacja usługi
-        + Zakup przedmiotu
+        + Register
+        + Login
+        + Manage account
+        + Add / edit / delete own ads
+        + Book services
+        + Purchase items
     }
     class Admin {
-        + Zarządzanie użytkownikami
-        + Usuwanie dowolnych ogłoszeń
-        + Statystyki systemu
+        + Manage users
+        + Delete any ad
+        + System statistics
     }
 
     Guest <|-- User
